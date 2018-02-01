@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+
+    <!-- General -->
+    <string name="app_name">Theme Manager</string>
+    <string name="apply_theme_title">Apply theme</string>
+    <string name="apply_mode_title">Apply mode</string>
+    <string name="expand_title">Expand</string>
+
+    <!-- Card categories -->
+    <string name="category_day_night_theming_title">Day/night theming:</string>
+    <string name="category_light_system_bars_title">Light system bars:</string>
+    <string name="category_advanced_title">Advanced:</string>
+
+    <!-- Cards -->
+
+    <!-- Main screen Cards -->
+
+    <!-- Day/night mode card -->
+    <string name="day_night_mode_title">Day/night mode</string>
+    <string name="day_night_mode_subtitle">Choose the day/night mode</string>
+    <string name="day_night_mode_description">Night: The night theme will be used\nDay: The day theme will be used\nAuto day/night:\nUsing the night or day theme is related to the current sunrise/sunset time.</string>
+
+    <!-- Night theme card -->
+    <string name="theme_night_title">Night theme</string>
+    <string name="theme_night_summary">Choose the night theme</string>
+
+    <!-- Day theme card -->
+    <string name="theme_day_title">Day theme</string>
+    <string name="theme_day_summary">Choose the day theme</string>
+
+    <!-- Light status bar card -->
+    <string name="light_status_bar_mode_title">Light status bar mode</string>
+    <string name="light_status_bar_mode_subtitle">Enable to use a light status- &amp; action bar</string>
+    <string name="light_status_bar_mode_description">When enabled, the status- &amp; action bar background colors will be light grey, icons and text will be black.\n(not all apps and ui elements which are supporting day/night themes, will also support this function).</string>
+
+    <!-- Light navigation bar card -->
+    <string name="light_navigation_bar_mode_title">Light navigation bar mode</string>
+    <string name="light_navigation_bar_mode_subtitle">Enable to use a light navigation bar</string>
+    <string name="light_navigation_bar_mode_description">When enabled, the navigation bar background color will be light grey, icons and text will be black.\n(not all apps and ui elements which are supporting day/night themes, will also support this function).</string>
+
+    <!-- SystemUI card -->
+    <string name="theme_systemui_title">SystemUI</string>
+    <string name="theme_systemui_summary">Choose how to theme the SystemUI</string>
+    <!-- Main screen Cards end -->
+
+    <!-- Day/Night theme cards -->
+
+    <!-- Day/Night theme cards titles -->
+    <string name="theme_darkkat_title">DarkKat</string>
+    <string name="theme_darkkat_whiteout_title">DarkKat (Whiteout version)</string>
+    <string name="theme_darkkat_day_title">DarkKat (Light version)</string>
+    <string name="theme_whiteout_title">Whiteout</string>
+    <string name="theme_darkkat_blackout_title">DarkKat (Blackout version)</string>
+    <string name="theme_material_title">Material</string>
+    <string name="theme_material_light_title">Material Light</string>
+    <string name="theme_blackout_title">Blackout</string>
+
+    <!-- Day/Night theme cards subtitles -->
+    <string name="theme_darkkat_subtitle">Theme.Material (DarkKat version)</string>
+    <string name="theme_darkkat_whiteout_subtitle">Theme.Material.Light (DarkKat-Whiteout version)</string>
+    <string name="theme_darkkat_day_subtitle">Theme.Material.Light (DarkKat version)</string>
+    <string name="theme_whiteout_subtitle">Theme.Material.Light (Whiteout version)</string>
+    <string name="theme_darkkat_blackout_subtitle">Theme.Material (DarkKat-Blackout version)</string>
+    <string name="theme_material_subtitle">Theme.Material </string>
+    <string name="theme_material_light_subtitle">Theme.Material.Light</string>
+    <string name="theme_blackout_subtitle">Theme.Material (Blackout version)</string>
+
+    <!-- Day/Night theme cards descriptions -->
+    <string name="theme_darkkat_description">Based on Theme.Material, the theme uses darker background colors with a little blue touch. The accent color is changed to ff5a8596, (12.5 % Holo blue light over Material blue grey 500).</string>
+    <string name="theme_darkkat_whiteout_description">Based on Theme.Material.Light (Whiteout version). The theme uses the default status- and action bar colors of the Theme.Material.Light. The accent color is changed to ff5a8596, (12.5 % Holo blue light over Material blue grey 500).</string>
+    <string name="theme_darkkat_day_description">Based on Theme.Material.Light, the theme uses a white background. The accent color is changed to ff5a8596, (12.5 % Holo blue light over Material blue grey 500).</string>
+    <string name="theme_whiteout_description">Based on Theme.Material.Light, the theme uses a white background and a light status- and action bar. The accent color is changed to black.</string>
+    <string name="theme_darkkat_blackout_description">Based on Theme.Material (Blackout version). The action bar color is changed to Material blue grey 950 and the accent color is changed to ff5a8596, (12.5 % Holo blue light over Material blue grey 500).</string>
+    <string name="theme_material_description">The default Material theme</string>
+    <string name="theme_material_light_description">The default Material theme, (light version)</string>
+    <string name="theme_blackout_description">Based on Theme.Material, the theme uses darker background colors, (black background and dark grey floating background). The action bar color is changed to dark grey and the accent color is changed to white.</string>
+    <!-- Day/Night theme cards -->
+    <!-- Card contents end -->
+
+    <!-- SystemUI cards -->
+    <string name="theme_systemui_mode_title">SystemUI Theme mode</string>
+    <string name="theme_systemui_mode_subtitle">Choose the SystemUI Theme mode</string>
+    <string name="theme_systemui_mode_description">Either the SystemUI Theme mode is depending on the home screen wallpaper, or the current day/night theme will be used.</string>
+</resources>
