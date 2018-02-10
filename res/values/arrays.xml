@@ -15,6 +15,18 @@
 -->
 <resources>
 
+    <string-array name="day_night_theme_titles">
+        <item>@string/theme_night_title</item>
+        <item>@string/theme_day_title</item>
+        <item>@string/theme_auto_title</item>
+    </string-array>
+
+    <integer-array name="day_night_theme_values">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </integer-array>
+
     <string-array name="night_theme_titles">
         <item>@string/theme_darkkat_title</item>
         <item>@string/theme_material_title</item>

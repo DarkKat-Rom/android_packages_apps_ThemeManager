@@ -27,7 +27,7 @@ import net.darkkatrom.thememanager.R;
 public class ExpandableCardView extends CardView {
 
     private CardHeaderView mHeaderView;
-    private CardFooterView mFooterView;
+    protected CardFooterView mFooterView;
     private TextView mDescription;
 
     public ExpandableCardView(Context context) {
@@ -74,6 +74,10 @@ public class ExpandableCardView extends CardView {
         mDescription.setText(resId);
     }
 
+    public void setCardAction1(int value) {
+        mFooterView.setAction1(value);
+    }
+
     public void setCardAction1Title(int resId) {
         mFooterView.setAction1Title(resId);
     }
@@ -96,5 +100,9 @@ public class ExpandableCardView extends CardView {
 
     public void setCardAction2Icon(Drawable d) {
         mFooterView.setAction2Icon(d);
+    }
+
+    public CardFooterView getFooterView() {
+        return mFooterView;
     }
 }

@@ -29,6 +29,7 @@ import android.view.ViewGroup;
 import net.darkkatrom.thememanager.MainActivity;
 import net.darkkatrom.thememanager.R;
 import net.darkkatrom.thememanager.adapter.CardAdapter;
+import net.darkkatrom.thememanager.model.Action;
 import net.darkkatrom.thememanager.model.Card;
 import net.darkkatrom.thememanager.model.CardCategory;
 import net.darkkatrom.thememanager.model.CardFooter;
@@ -60,58 +61,55 @@ public class BaseFragment extends Fragment implements CardAdapter.OnCardClickLis
     public void buildCardListAndAdapter() {
     }
 
-    protected Card createCardCategory(int titleResId) {
-        return new CardCategory(getActivity(), titleResId);
-    }
-
     protected Card createCardCategory(String title) {
         return new CardCategory(getActivity(), title);
     }
 
-    protected Card createSimpleCard(int titleResId, int summaryResId) {
-        return new SimpleCard(getActivity(), titleResId, summaryResId);
+    protected Card createCardCategory(int titleResId) {
+        return new CardCategory(getActivity(), titleResId);
     }
 
     protected Card createSimpleCard(String title, String summary) {
-        return new SimpleCard(getActivity(), title, summary);
+        return createSimpleCard(getActivity(), title, summary, null, -1);
     }
 
-    protected Card createListCard(int descriptionResId) {
-        return new ListCard(getActivity(), descriptionResId);
+    protected Card createSimpleCard(String title, String summary, String primaryActionEvent,
+            int primaryActionValue) {
+        return createSimpleCard(getActivity(), title, summary, primaryActionEvent, primaryActionValue);
+    }
+
+    protected Card createSimpleCard(int titleResId, int summaryResId) {
+        return new SimpleCard(getActivity(), titleResId, summaryResId, null, -1);
+    }
+
+    protected Card createSimpleCard(int titleResId, int summaryResId, String primaryActionEvent,
+            int primaryActionValue) {
+        return new SimpleCard(getActivity(), titleResId, summaryResId);
     }
 
     protected Card createListCard(String description) {
         return new ListCard(getActivity(), description);
     }
 
-    protected Card createSwitchCard(int descriptionResId) {
-        return new SwitchCard(getActivity(), descriptionResId);
+    protected Card createListCard(int descriptionResId) {
+        return new ListCard(getActivity(), descriptionResId);
     }
 
     protected Card createSwitchCard(String description) {
         return new SwitchCard(getActivity(), description);
     }
 
-    protected CardHeader createCardHeader(int titleResId, int subtitleResId) {
-        return new CardHeader(getActivity(), titleResId, subtitleResId);
-    }
-
-    protected CardHeader createCardHeader(String title, String subtitle) {
-        return new CardHeader(getActivity(), title, subtitle);
-    }
-
-    protected CardFooter createCardFooter(int action1TitleResId, int action2TitleResId,
-            int action2IconResId) {
-        return new CardFooter(getActivity(), action1TitleResId, action2TitleResId, action2IconResId);
-    }
-
-    protected CardFooter createCardFooter(String action1Title, String action2Title,
-            Drawable action2Icon) {
-        return new CardFooter(getActivity(), action1Title, action2Title, action2Icon);
+    protected Card createSwitchCard(int descriptionResId) {
+        return new SwitchCard(getActivity(), descriptionResId);
     }
 
     @Override
-    public void onCardClicked(String action) {
+    public void onCardClicked(Action action) {
+        ((MainActivity) getActivity()).onCardClicked(action);
+    }
+
+    @Override
+    public void onCardActionButtonClicked(Action action) {
         ((MainActivity) getActivity()).onCardClicked(action);
     }
 }

@@ -17,91 +17,114 @@
 package net.darkkatrom.thememanager.model;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 
-public class CardFooter extends Card {
-    private String mAction1Title = null;
-    private int mAction1TitleResId = 0;
-    private String mAction2Title = null;
-    private int mAction2TitleResId = 0;
-    private Drawable mAction2Icon = null;
-    private int mAction2IconResId = 0;
+import net.darkkatrom.thememanager.model.Action;
+import net.darkkatrom.thememanager.model.ButtonAction;
+
+public class CardFooter {
+    protected Context mContext;
+    protected Resources mResources;
+
+    protected Action mAction1 = null;
+    protected Action mAction2 = null;
 
     public CardFooter(Context context) {
-        super(context);
+        mContext = context;
+        mResources = context.getResources();
+        mAction1 = new ButtonAction(context);
+        mAction2 = new ButtonAction(context);
     }
 
     public CardFooter(Context context, String action1Title, String action2Title, Drawable action2Icon) {
-        super(context, null);
-        mAction1Title = action1Title;
-        mAction2Title = action2Title;
-        mAction2Icon = action2Icon;
+        this(context);
+        mAction1.setTitle(action1Title);
+        mAction2.setTitle(action2Title);
+        mAction2.setIcon(action2Icon);
     }
 
     public CardFooter(Context context, int action1TitleResId, int action2TitleResId,
             int action2IconResId) {
-        super(context, 0);
-        mAction1TitleResId = action1TitleResId;
-        mAction2TitleResId = action2TitleResId;
-        mAction2IconResId = action2IconResId;
+        this(context);
+        mAction1.setTitle(action1TitleResId);
+        mAction2.setTitle(action2TitleResId);
+        mAction2.setIcon(action2IconResId);
     }
 
-    @Override
-    public void setTitle(String title) {
-        log(getTag(), "setTitle: Title is not supported, use setAction1Title or setAction2Title instead");
-        super.setTitle(null);
+    public void setAction1Event(String action1Event) {
+        mAction1.setEvent(action1Event);
     }
 
-    @Override
-    public void setTitleResId(int resId) {
-        log(getTag(), "setTitle: Title is not supported, use setAction1Title or setAction2Title instead");
-        super.setTitleResId(0);
+    public void setAction1Value(int action1Value) {
+        mAction1.setValue(action1Value);
     }
 
-    public void setAction1Title(String title) {
-        mAction1Title = title;
+    public void setAction1Title(String action1Title) {
+        mAction1.setTitle(action1Title);
     }
 
-    public void setAction1TitleResId(int resId) {
-        mAction1TitleResId = resId;
+    public void setAction1Title(int action1TitleResId) {
+        mAction1.setTitle(action1TitleResId);
     }
 
-    public void setAction2Title(String title) {
-        mAction2Title = title;
+    public void setAction2Event(String action2Event) {
+        mAction2.setEvent(action2Event);
     }
 
-    public void setAction2TitleResId(int resId) {
-        mAction2TitleResId = resId;
+    public void setAction2Value(int action2Value) {
+        mAction1.setValue(action2Value);
     }
 
-    public void setAction2Icon(Drawable icon) {
-        mAction2Icon = icon;
+    public void setAction2Title(String action2Title) {
+        mAction2.setTitle(action2Title);
     }
 
-    public void setAction2IconResId(int resId) {
-        mAction2IconResId = resId;
+    public void setAction2Title(int action2TitleResId) {
+        mAction2.setTitle(action2TitleResId);
     }
 
-    @Override
-    public String getTag() {
-        return TAG_CARD_FOOTER;
+    public void setAction2Icon(Drawable action2Icon) {
+        mAction2.setIcon(action2Icon);
     }
 
-    @Override
-    public String getTitle() {
-        log(getTag(), "getTitle: Title is not supported, returning null, use getAction1Title or getAction2Title instead");
-        return null;
+    public void setAction2Icon(int action2IconResId) {
+        mAction2.setIcon(action2IconResId);
+    }
+
+    public Action getAction1() {
+        return mAction1;
+    }
+
+    public String getAction1Event() {
+        return mAction1.getEvent();
+    }
+
+    public int getAction1Value() {
+        return mAction1.getValue();
     }
 
     public String getAction1Title() {
-        return resolveString(mAction1Title, mAction1TitleResId, getTag(), "getAction1Title: Action1Title was not set");
+        return mAction1.getTitle();
+    }
+
+    public Action getAction2() {
+        return mAction2;
+    }
+
+    public String getAction2Event() {
+        return mAction2.getEvent();
+    }
+
+    public int getAction2Value() {
+        return mAction2.getValue();
     }
 
     public String getAction2Title() {
-        return resolveString(mAction2Title, mAction2TitleResId, getTag(), "getAction2Title: Action2Title was not set");
+        return mAction2.getTitle();
     }
 
     public Drawable getAction2Icon() {
-        return resolveDrawable(mAction2Icon, mAction2IconResId, getTag(), "getAction2Icon: Action2Icon was not set");
+        return mAction2.getIcon();
     }
 }

@@ -24,11 +24,13 @@ import android.os.Bundle;
 import net.darkkatrom.thememanager.fragment.MainScreenFragment;
 import net.darkkatrom.thememanager.fragment.SystemUIThemeFragment;
 import net.darkkatrom.thememanager.fragment.ThemesFragment;
+import net.darkkatrom.thememanager.model.Action;
 
 public class MainActivity extends Activity {
-    public static final String ACTION_SHOW_NIGHT_THEMES   = "action_show_night_themes";
-    public static final String ACTION_SHOW_DAY_THEMES     = "action_show_day_themes";
-    public static final String ACTION_SHOW_SYSTEMUI_THEME = "action_show_systemui_theme";
+    public static final String ACTION_SHOW_NIGHT_THEMES      = "action_show_night_themes";
+    public static final String ACTION_SHOW_DAY_THEMES        = "action_show_day_themes";
+    public static final String ACTION_SHOW_SYSTEMUI_THEME    = "action_show_systemui_theme";
+    public static final String ACTION_CHANGE_DAY_NIGHT_THEME = "action_show_systemui_theme";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +43,9 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void onCardClicked(String action) {
+    public void onCardClicked(Action action) {
         Fragment f = null;
-        switch (action) {
+        switch (action.getAction()) {
             case ACTION_SHOW_NIGHT_THEMES:
                 f = new ThemesFragment();
                 ((ThemesFragment) f).setShowNightThemes(true);

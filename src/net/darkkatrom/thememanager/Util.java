@@ -14,25 +14,29 @@
  * limitations under the License.
  */
 
-package net.darkkatrom.thememanager.model;
+package net.darkkatrom.thememanager;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 
-public class CardCategory extends Card {
-    public CardCategory(Context context) {
-        super(context);
+public class Util {
+
+    public static String resolveString(String s, String tag, String logInfo) {
+        if (s == null) {
+            log(tag, logInfo);
+        }
+        return s;
     }
 
-    public CardCategory(Context context, String title) {
-        super(context, title);
+    public static Drawable resolveDrawable(Drawable d,, String tag, String logInfo) {
+        if (d == null) {
+            log(tag, logInfo);
+        }
+        return d;
     }
 
-    public CardCategory(Context context, int titleResId) {
-        super(context, titleResId);
-    }
-
-    @Override
-    public int getViewType() {
-        return VIEW_TYPE_CARD_CATEGORY;
+    public static void log(String tag, String logInfo) {
+        Log.w(tag, logInfo);
     }
 }

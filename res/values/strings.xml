@@ -21,6 +21,8 @@
     <string name="apply_mode_title">Apply mode</string>
     <string name="expand_title">Expand</string>
 
+    <string name="theme_auto_title">Auto</string>
+
     <!-- Card categories -->
     <string name="category_day_night_theming_title">Day/night theming:</string>
     <string name="category_light_system_bars_title">Light system bars:</string>

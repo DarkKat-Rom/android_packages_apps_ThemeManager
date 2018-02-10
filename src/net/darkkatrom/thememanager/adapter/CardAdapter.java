@@ -31,6 +31,7 @@ import net.darkkatrom.thememanager.cardview.CardFooterView;
 import net.darkkatrom.thememanager.cardview.ListCardView;
 import net.darkkatrom.thememanager.cardview.SimpleCardView;
 import net.darkkatrom.thememanager.cardview.SwitchCardView;
+import net.darkkatrom.thememanager.model.Action;
 import net.darkkatrom.thememanager.model.Card;
 
 import java.util.ArrayList;
@@ -40,6 +41,8 @@ public class CardAdapter extends Adapter<ViewHolder> {
     private Context mContext;
     private RecyclerView mRecyclerView;
     private List<Card> mCards;
+
+    private OnCardClickListener mOnCardClickListener;
 
     public CardAdapter(Context context, List<Card> cards) {
         super();
@@ -52,10 +55,9 @@ public class CardAdapter extends Adapter<ViewHolder> {
         }
     }
 
-    private OnCardClickListener mOnCardClickListener;
-
     public interface OnCardClickListener {
-        public void onCardClicked(String action);
+        public void onCardClicked(Action action);
+        public void onCardActionButtonClicked(View v);
     }
 
     public static class CardCategoryViewHolder extends ViewHolder {
@@ -78,10 +80,12 @@ public class CardAdapter extends Adapter<ViewHolder> {
 
     public static class ListCardViewHolder extends ViewHolder {
         public ListCardView mCardView;
+        public CardFooterView mCardFooterView;
 
         public ListCardViewHolder(View v) {
             super(v);
             mCardView = (ListCardView) v.findViewById(R.id.card_layout);
+            mCardFooterView = mCardView.getFooterView();
         }
     }
 
@@ -146,6 +150,21 @@ public class CardAdapter extends Adapter<ViewHolder> {
                 listCardVH.mCardView.setCardAction1Title(card.getFooter().getAction1Title());
                 listCardVH.mCardView.setCardAction2Title(card.getFooter().getAction2Title());
                 listCardVH.mCardView.setCardAction2Icon(card.getFooter().getAction2Icon());
+                if (card.getListItems() != null) {
+                    if (card.getListItems().getTitles() != 0
+                            && card.getListItems().getValues() != 0) {
+                        listCardVH.mCardView.setListItems(card.getListItems().getTitles(),
+                                card.getListItems().getValues());
+                    }
+                }
+                if (card.getFooterAction1() != null) {
+                    listCardVH.mCardView.setOnListItemClickListener(
+                            new ListCardView.OnListItemClickListener() {
+                        @Override
+                        public void onListItemClicked(int value) {
+                            listCardVH.mCardView.setCardAction1(value);
+                        }
+                    });
                 break;
             case Card.VIEW_TYPE_SWITCH_CARD:
                 SwitchCardViewHolder SwitchCardVH = (SwitchCardViewHolder) holder;

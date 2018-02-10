@@ -29,4 +29,6 @@
     <item type="id" name="card_action_1_title" />
     <item type="id" name="card_action_2_title" />
     <item type="id" name="card_action_2_icon" />
+
+    <item type="id" name="card_radio_group" />
 </resources>

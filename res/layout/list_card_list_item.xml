@@ -13,26 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout
+<RadioButton
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@id/card_content_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    android:paddingBottom="16dp"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@id/card_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <RadioGroup
-        android:id="@id/card_radio_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </RadioGroup>
-
-</LinearLayout>
+    android:layout_height="wrap_content" />

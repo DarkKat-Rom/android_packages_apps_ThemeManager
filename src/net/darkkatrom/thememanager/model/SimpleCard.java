@@ -17,23 +17,37 @@
 package net.darkkatrom.thememanager.model;
 
 import android.content.Context;
+import android.util.Log;
+
+import net.darkkatrom.thememanager.model.Action;
 
 public class SimpleCard extends Card {
     private String mSummary = null;
-    private int mSummaryResId = 0;
+    private Action mPrimaryAction = null;
 
     public SimpleCard(Context context) {
-        super(context);
+        this(context, null, null);
     }
 
     public SimpleCard(Context context, String title, String summary) {
+        this(context, title, null, -1);
+    }
+
+    public SimpleCard(Context context, String title, String summary, String primaryActionEvent,
+            int primaryActionValue) {
         super(context, title);
         mSummary = summary;
+        mPrimaryAction = new Action(context, primaryActionEvent, primaryActionValue);
     }
 
     public SimpleCard(Context context, int titleResId, int summaryResId) {
-        super(context, titleResId);
-        mSummaryResId = summaryResId;
+        this(context, context.getResources().getString(summaryResId), null, -1);
+    }
+
+    public SimpleCard(Context context, int titleResId, int summaryResId, String primaryActionEvent,
+            int primaryActionValue) {
+        this(context, context.getResources().getString(summaryResId), primaryActionEvent,
+                primaryActionValue);
     }
 
     @Override
@@ -42,21 +56,45 @@ public class SimpleCard extends Card {
     }
 
     @Override
-    public void setSummaryResId(int resId) {
-        mSummaryResId = resId;
+    public void setSummary(int summaryResId) {
+        mSummary = mResources.getString(summaryResId);
     }
 
     @Override
-    public String getTag() {
-        return TAG_SIMPLE_CARD;
+    public void setPrimaryActionEvent(String primaryActionEvent) {
+        mPrimaryAction.setEvent(primaryActionEvent);
     }
 
-    public int getViewType() {
-        return VIEW_TYPE_SIMPLE_CARD;
+    @Override
+    public void setPrimaryActionValue(int primaryActionValue) {
+        mPrimaryAction.setValue(primaryActionValue);
     }
 
     @Override
     public String getSummary() {
-        return resolveString(mSummary, mSummaryResId, getTag(), "getSummary: Summary was not set");
+        if (mSummary == null) {
+            Log.w(TAG_SIMPLE_CARD, "getSummary: Summary was not set");
+        }
+        return mSummary;
+    }
+
+    @Override
+    public String getPrimaryAction() {
+        mPrimaryAction;
+    }
+
+    @Override
+    public String getPrimaryActionEvent() {
+        mPrimaryAction.getEvent();
+    }
+
+    @Override
+    public String getPrimaryActionValue() {
+        mPrimaryAction.getValue();
+    }
+
+    @Override
+    public int getViewType() {
+        return VIEW_TYPE_SIMPLE_CARD;
     }
 }

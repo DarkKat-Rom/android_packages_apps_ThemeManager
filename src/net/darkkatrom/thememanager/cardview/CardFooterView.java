@@ -31,6 +31,8 @@ public class CardFooterView extends LinearLayout {
     private Button mAction2Title;
     private ImageView mAction2Icon;
 
+    private OnActionButtonClickListener mOnActionButtonClickListener;
+
     public CardFooterView(Context context) {
         super(context);
     }
@@ -43,12 +45,24 @@ public class CardFooterView extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    public interface OnActionButtonClickListener {
+        public void onActionButtonClicked(String action, int value);
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
         mAction1 = (Button) findViewById(R.id.card_action_1_title);
         mAction2Title = (Button) findViewById(R.id.card_action_2_title);
         mAction2Icon = (ImageView) findViewById(R.id.card_action_2_icon);
+    }
+
+    public void setOnActionButtonClickListener(OnActionButtonClickListener listener) {
+        mOnActionButtonClickListener = listener;
+    }
+
+    public void setAction1(int value) {
+        mAction1.setTag(value);
     }
 
     public void setAction1Title(int resId) {

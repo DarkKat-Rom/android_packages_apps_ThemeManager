@@ -46,16 +46,19 @@ public class MainScreenFragment extends BaseFragment {
                 R.string.light_status_bar_mode_title, R.string.light_status_bar_mode_subtitle));
         lightNavigationBarModeCard.setHeader(createCardHeader(
                 R.string.light_navigation_bar_mode_title, R.string.light_navigation_bar_mode_subtitle));
+        dayNightModeCard.setFooter(createCardFooter(
+                R.string.apply_mode_title, R.string.expand_title, R.drawable.ic_expand_more));
         lightStatusBarModeCard.setFooter(createCardFooter(
                 R.string.apply_mode_title, R.string.expand_title, R.drawable.ic_expand_more));
         lightNavigationBarModeCard.setFooter(createCardFooter(
                 R.string.apply_mode_title, R.string.expand_title, R.drawable.ic_expand_more));
-        dayNightModeCard.setFooter(createCardFooter(
-                R.string.apply_mode_title, R.string.expand_title, R.drawable.ic_expand_more));
+
+        dayNightModeCard.setListItems(R.array.day_night_theme_titles, R.array.day_night_theme_values);
+        dayNightModeCard.setFooterAction1(MainActivity.ACTION_CHANGE_DAY_NIGHT_THEME, -1);
+
         nightThemeCard.setPrimaryAction(MainActivity.ACTION_SHOW_NIGHT_THEMES);
         dayThemeCard.setPrimaryAction(MainActivity.ACTION_SHOW_DAY_THEMES);
         systemUIThemeCard.setPrimaryAction(MainActivity.ACTION_SHOW_SYSTEMUI_THEME);
-
         mCards.add(categoryDayNightTheming);
         mCards.add(dayNightModeCard);
         mCards.add(nightThemeCard);

@@ -19,51 +19,56 @@ package net.darkkatrom.thememanager.model;
 import android.content.Context;
 import android.content.res.Resources;
 
-public class CardHeader {
+public class Action {
+    public static final String TAG = "Action";
+
     protected Context mContext;
     protected Resources mResources;
 
-    protected String mTitle = null;
-    private String mSubtitle = null;
+    protected String mEvent = null;
+    protected int mValue = -1;
 
-    public CardHeader(Context context) {
+    public Action(Context context) {
         mContext = context;
         mResources = context.getResources();
     }
 
-    public CardHeader(Context context, String title, String subtitle) {
+    public Action(Context context, String event) {
         this(context);
-        mTitle = title;
-        mSubtitle = subtitle;
+        mEvent = event;
     }
 
-    public CardHeader(Context context, int titleResId, int subtitleResId) {
-        this(context);
-        mTitle = mResources.getString(titleResId);
-        mSubtitle = mResources.getString(subtitleResId);
+    public Action(Context context, String event, int value) {
+        this(context, event);
+        mValue = value;
     }
 
-    public void setTitle(String title) {
-        mTitle = title;
+    public void setEvent(String event) {
+        mEvent = event;
     }
 
-    public void setTitle(int resId) {
-        mTitle = mResources.getString(titleResId);
+    public void setValue(int value) {
+        mValue = value;
     }
 
-    public void setSubtitle(String subtitle) {
-        mSubtitle = subtitle;
+    public void setTitle(String title) {}
+    public void setTitle(int titleResId) {}
+    public void setIcon(Drawable icon) {}
+    public void setValue(int iconResId) {}
+
+    public String getEvent() {
+        return mEvent;
     }
 
-    public void setSubtitle(int subtitleResId) {
-        mSubtitle = mResources.getString(subtitleResId);
+    public int getValue() {
+        return mValue;
     }
 
     public String getTitle() {
-        return mTitle;
+        return null;
     }
 
-    public String getSubtitle() {
-        return mSubtitle;
+    public Drawable getIcon() {
+        return null;
     }
 }
